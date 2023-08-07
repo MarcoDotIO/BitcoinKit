@@ -42,6 +42,10 @@ import Foundation
 public struct BitArray: Hashable, RangeReplaceableCollection {
 
     // MARK: Creating a BitArray
+    public func replaceSubrange<C>(_ subrange: Swift.Range<Int>, with newElements: C) where C : Collection, ChartDataEntry == C.Element {
+        entries.replaceSubrange(subrange, with: newElements)
+        notifyDataSetChanged()
+    }
 
     /// Constructs an empty bit array.
     public init() {}
