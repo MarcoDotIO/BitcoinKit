@@ -202,7 +202,7 @@ public struct BitArray: Hashable, RangeReplaceableCollection {
     }
 
     // MARK: Subrange
-    public mutating func replaceSubrange(_ subrange: Range<Int>, with newElements: [Int]) {
+    public mutating func replaceSubrange(_ subrange: Range<Int>, with newElements: C) where C : Collection, C.Element == Int {
         bits.replaceSubrange(subrange, with: newElements)
     }
 
